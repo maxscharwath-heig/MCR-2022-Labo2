@@ -8,7 +8,7 @@ public abstract class Status {
 
     protected final Client client;
 
-    protected Status (Client client) {
+    protected Status(Client client) {
         this.client = client;
     }
 

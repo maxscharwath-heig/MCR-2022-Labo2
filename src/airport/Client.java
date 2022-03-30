@@ -8,11 +8,11 @@ public class Client {
     private final String lastname;
     private final String firstname;
     private final int id;
-    private int credits;
-    private int miles;
+    private final int credits;
+    private final int miles;
     private Status status;
 
-    public Client (String lastname, String firstname) {
+    public Client(String lastname, String firstname) {
         this.lastname = lastname;
         this.firstname = firstname;
         this.id = ++counter;
@@ -39,5 +39,9 @@ public class Client {
 
     public int getMiles() {
         return miles;
+    }
+
+    public int getId() {
+        return id;
     }
 }

@@ -23,5 +23,6 @@ public class Silver extends Status {
     }
 
     @Override
-    public void demote() { }
+    public void demote() {
+    }
 }

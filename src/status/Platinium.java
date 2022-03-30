@@ -16,7 +16,8 @@ public class Platinium extends Status {
     }
 
     @Override
-    public void promote() { }
+    public void promote() {
+    }
 
     @Override
     public void demote() {

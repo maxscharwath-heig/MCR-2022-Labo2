@@ -1,20 +1,19 @@
 package gui;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class ClientManagerGUI extends JFrame {
-    public ClientManagerGUI(){
+    public ClientManagerGUI() {
         super("Clients Manager");
         var panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         {
             var clientPanel = new JPanel();
-            clientPanel.add(new JLabel("entity.Client"));
+            clientPanel.add(new JLabel("Client"));
             var comboBox = new JComboBox<>();
-            comboBox.addItem("entity.Client 1");
-            comboBox.addItem("entity.Client 2");
-            comboBox.addItem("entity.Client 3");
+            comboBox.addItem("Client 1");
+            comboBox.addItem("Client 2");
+            comboBox.addItem("Client 3");
             clientPanel.add(comboBox);
             var button = new JButton("Details");
             clientPanel.add(button);
@@ -31,11 +30,11 @@ public class ClientManagerGUI extends JFrame {
         }
         {
             var flightPanel = new JPanel();
-            flightPanel.add(new JLabel("entity.Flight"));
+            flightPanel.add(new JLabel("Flight"));
             var comboBox = new JComboBox<>();
-            comboBox.addItem("entity.Flight 1");
-            comboBox.addItem("entity.Flight 2");
-            comboBox.addItem("entity.Flight 3");
+            comboBox.addItem("Flight 1");
+            comboBox.addItem("Flight 2");
+            comboBox.addItem("Flight 3");
             flightPanel.add(comboBox);
             var bookCashButton = new JButton("Book (cash)");
             var bookMilesButton = new JButton("Book (miles)");

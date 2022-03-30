@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="no"?>
+<classDiagram>
+  <diagramElements defaultViewEntities="ALL" defaultViewEnum="true" defaultViewMethods="TYPE_AND_NAME" defaultVisibleTypes="true" informations="" name="MCR - Labo 2">
+    <association aggregation="AGGREGATE" direction="BIDIRECTIONAL" id="192" name="">
+      <role componentId="2" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+      <role componentId="3" name="" visibility="PRIVATE">
+        <multiplicity>
+          <min>1</min>
+          <max>1</max>
+        </multiplicity>
+      </role>
+    </association>
+    <entity entityType="CLASS" id="11" isAbstract="false" name="airport.tickets.Ticket" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="basePrice" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="coefficiant" type="int" visibility="PRIVATE"/>
+      <method isAbstract="false" isStatic="false" name="getPrice" returnType="int" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <inheritance id="10">
+      <child>7</child>
+      <parent>3</parent>
+    </inheritance>
+    <inheritance id="9">
+      <child>6</child>
+      <parent>3</parent>
+    </inheritance>
+    <inheritance id="8">
+      <child>5</child>
+      <parent>3</parent>
+    </inheritance>
+    <entity entityType="CLASS" id="7" isAbstract="false" name="Platinium" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="getColor" returnType="Color" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="6" isAbstract="false" name="Gold" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="getColor" returnType="Color" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="5" isAbstract="false" name="Silver" visibility="PUBLIC">
+      <method isAbstract="false" isStatic="false" name="getColor" returnType="Color" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+    <entity entityType="CLASS" id="1" isAbstract="false" name="airport.Flight" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="name" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="distance" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="basePrice" type="int" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="2" isAbstract="false" name="airport.Client" visibility="PUBLIC">
+      <attribute const="false" defaultValue="" isStatic="false" name="lastname" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="firstname" type="String" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="id" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="credits" type="int" visibility="PRIVATE"/>
+      <attribute const="false" defaultValue="" isStatic="false" name="miles" type="int" visibility="PRIVATE"/>
+    </entity>
+    <entity entityType="CLASS" id="3" isAbstract="true" name="Status" visibility="PUBLIC">
+      <method isAbstract="true" isStatic="false" name="getColor" returnType="Color" view="DEFAULT" visibility="PUBLIC"/>
+    </entity>
+  </diagramElements>
+  <umlView grid="10" name="Main view" open="true">
+    <relationView color="-12566464" relationId="8">
+      <line>
+        <point>
+          <x>751</x>
+          <y>171</y>
+        </point>
+        <point>
+          <x>751</x>
+          <y>151</y>
+        </point>
+        <point>
+          <x>921</x>
+          <y>151</y>
+        </point>
+        <point>
+          <x>921</x>
+          <y>101</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="9">
+      <line>
+        <point>
+          <x>921</x>
+          <y>171</y>
+        </point>
+        <point>
+          <x>921</x>
+          <y>101</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="10">
+      <line>
+        <point>
+          <x>1091</x>
+          <y>171</y>
+        </point>
+        <point>
+          <x>1091</x>
+          <y>151</y>
+        </point>
+        <point>
+          <x>921</x>
+          <y>151</y>
+        </point>
+        <point>
+          <x>921</x>
+          <y>101</y>
+        </point>
+      </line>
+    </relationView>
+    <relationView color="-12566464" relationId="192">
+      <line>
+        <point>
+          <x>491</x>
+          <y>51</y>
+        </point>
+        <point>
+          <x>841</x>
+          <y>51</y>
+        </point>
+      </line>
+      <labelAssociation>
+        <x>670</x>
+        <y>55</y>
+        <w>0</w>
+        <h>16</h>
+      </labelAssociation>
+      <roleAssociation>
+        <x>495</x>
+        <y>55</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <roleAssociation>
+        <x>805</x>
+        <y>55</y>
+        <w>0</w>
+        <h>16</h>
+      </roleAssociation>
+      <multipliciteAssociation>
+        <x>495</x>
+        <y>29</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+      <multipliciteAssociation>
+        <x>827</x>
+        <y>29</y>
+        <w>8</w>
+        <h>16</h>
+      </multipliciteAssociation>
+    </relationView>
+    <componentView color="-2079" componentID="3" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>840</x>
+        <y>30</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="2" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>230</x>
+        <y>30</y>
+        <w>260</w>
+        <h>130</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="1" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>110</x>
+        <y>210</y>
+        <w>150</w>
+        <h>100</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="5" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>670</x>
+        <y>170</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="6" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>840</x>
+        <y>170</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="7" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>1010</x>
+        <y>170</y>
+        <w>150</w>
+        <h>70</h>
+      </geometry>
+    </componentView>
+    <componentView color="-2079" componentID="11" displayAttributes="true" displayDefault="true" displayMethods="true">
+      <geometry>
+        <x>290</x>
+        <y>300</y>
+        <w>180</w>
+        <h>100</h>
+      </geometry>
+    </componentView>
+  </umlView>
+</classDiagram>

@@ -1,3 +1,5 @@
+package airport;
+
 public class Flight {
     private String name;
     private int distance;

@@ -1,3 +1,6 @@
+import airport.Client;
+import airport.Flight;
+
 import java.util.LinkedList;
 
 public class Main {

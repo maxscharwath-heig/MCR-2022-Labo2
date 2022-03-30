@@ -1,6 +1,5 @@
 import airport.Client;
 import airport.Flight;
-import gui.ClientDetailGUI;
 import gui.ClientManagerGUI;
 import gui.StatusGUI;
 
@@ -13,9 +12,9 @@ public class Main {
         LinkedList<Flight> flights = new LinkedList<>();
 
         clients.add(new Client("Boucher", "Guy"));
+        clients.add(new Client("Crausaz", "Nicolas"));
         flights.add(new Flight("LX1", 1200, 300));
-        new ClientManagerGUI().setVisible(true);
-        new ClientDetailGUI(clients.get(0)).setVisible(true);
+        new ClientManagerGUI(clients).setVisible(true);
         new StatusGUI().setVisible(true);
     }
 }

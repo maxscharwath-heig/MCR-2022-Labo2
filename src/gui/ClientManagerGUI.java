@@ -1,9 +1,14 @@
 package gui;
 
+import airport.Client;
+
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
 public class ClientManagerGUI extends JFrame {
-    public ClientManagerGUI() {
+    public ClientManagerGUI(LinkedList<Client> clients) {
         super("Clients Manager");
         var panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -11,13 +16,20 @@ public class ClientManagerGUI extends JFrame {
             var clientPanel = new JPanel();
             clientPanel.add(new JLabel("Client"));
             var comboBox = new JComboBox<>();
-            comboBox.addItem("Client 1");
-            comboBox.addItem("Client 2");
-            comboBox.addItem("Client 3");
+            for (Client c : clients) {
+                comboBox.addItem(c);
+            }
             clientPanel.add(comboBox);
             var button = new JButton("Details");
             clientPanel.add(button);
             panel.add(clientPanel);
+
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    new ClientDetailGUI((Client) comboBox.getSelectedItem()).setVisible(true);
+                }
+            });
         }
         {
             var creditPanel = new JPanel();
@@ -49,7 +61,14 @@ public class ClientManagerGUI extends JFrame {
             bottomPanel.add(statusButton);
             bottomPanel.add(exitButton);
             panel.add(bottomPanel);
+            exitButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.exit(0);
+                }
+            });
         }
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(panel);
         pack();
     }

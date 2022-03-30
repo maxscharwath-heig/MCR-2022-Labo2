@@ -1,4 +1,8 @@
+<<<<<<<< HEAD:src/entity/Flight.java
 package entity;
+========
+package airport;
+>>>>>>>> origin/master:src/airport/Flight.java
 
 public class Flight {
     private String name;

@@ -1,5 +1,5 @@
-import entity.Client;
-import entity.Flight;
+import airport.Client;
+import airport.Flight;
 import gui.ClientDetailGUI;
 import gui.ClientManagerGUI;
 import gui.StatusGUI;

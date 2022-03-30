@@ -1,3 +1,5 @@
+package entity;
+
 import status.Status;
 
 public class Client {

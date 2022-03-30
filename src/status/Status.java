@@ -1,5 +1,5 @@
 package status;
 
-public class Status {
+public abstract class Status {
 
 }

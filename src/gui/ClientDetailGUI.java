@@ -4,7 +4,7 @@ import airport.Client;
 
 import javax.swing.*;
 
-public class ClientDetailGUI extends JFrame {
+public class ClientDetailGUI extends JFrame implements Observer {
     public ClientDetailGUI(Client client) {
         super("Detail of client #" + client.getId());
         var panel = new JPanel();
@@ -17,5 +17,10 @@ public class ClientDetailGUI extends JFrame {
         panel.add(new JLabel("Last action: "));
         add(panel);
         pack();
+    }
+
+    @Override
+    public void update() {
+
     }
 }

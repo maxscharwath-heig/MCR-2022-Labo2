@@ -8,6 +8,7 @@ import airport.tickets.FirstClass;
 import airport.tickets.Ticket;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -18,15 +19,17 @@ public class ClientManagerGUI extends JFrame {
     public ClientManagerGUI(LinkedList<Client> clients, LinkedList<Flight> flights) {
         super("Clients Manager");
         var panel = new JPanel();
+        panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        var clientComboBox = new JComboBox<>();
         {
             var clientPanel = new JPanel();
             clientPanel.add(new JLabel("Client"));
-            var comboBox = new JComboBox<>();
             for (Client c : clients) {
-                comboBox.addItem(c);
+                clientComboBox.addItem(c);
             }
-            clientPanel.add(comboBox);
+            clientPanel.add(clientComboBox);
             var button = new JButton("Details");
             clientPanel.add(button);
             panel.add(clientPanel);
@@ -34,8 +37,8 @@ public class ClientManagerGUI extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (comboBox.getSelectedItem() != null) {
-                        new ClientDetailGUI((Client) comboBox.getSelectedItem()).setVisible(true);
+                    if (clientComboBox.getSelectedItem() != null) {
+                        new ClientDetailGUI((Client) clientComboBox.getSelectedItem()).setVisible(true);
                     }
                 }
             });
@@ -48,6 +51,15 @@ public class ClientManagerGUI extends JFrame {
             var button = new JButton("Add");
             creditPanel.add(button);
             panel.add(creditPanel);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    var client = (Client) clientComboBox.getSelectedItem();
+                    if (client != null) {
+                        client.addCredit(Integer.parseInt(numberField.getText()));
+                    }
+                }
+            });
         }
         {
             var flightPanel = new JPanel();

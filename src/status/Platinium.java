@@ -17,12 +17,16 @@ public class Platinium extends Status {
 
     @Override
     public void promote() {
+        if(client.getCredits() >= 100000) {
+            client.setStatus(new BlockedPlatinium(client));
+        }
     }
 
     @Override
     public void demote() {
-        // Si le compte a au moins 100000 crédits, il reste indéfiniment dans le statut PLATINIUM (même si par la
-        //suite il n’a plus les 100000 crédits/10000 miles nécessaires).
+        if (client.getMiles() < 10000) {
+            client.setStatus(new Gold(client));
+        }
     }
 
     @Override

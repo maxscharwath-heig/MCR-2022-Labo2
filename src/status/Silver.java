@@ -30,6 +30,11 @@ public class Silver extends Status {
     }
 
     @Override
+    public double getCoefficiant() {
+        return 0.1;
+    }
+
+    @Override
     public String toString() {
         return "SILVER";
     }

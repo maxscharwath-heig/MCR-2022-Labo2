@@ -16,6 +16,8 @@ public abstract class Status {
 
     public abstract boolean promote();
 
+    public abstract double getCoefficiant();
+
     public abstract boolean demote();
 
     public boolean checkAndUpdateState(){

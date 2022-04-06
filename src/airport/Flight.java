@@ -30,7 +30,7 @@ public class Flight {
 
     @Override
     public String toString() {
-        return name;
+        return name + " (" + distance + " miles)";
     }
 
     public Ticket[] getTickets() {

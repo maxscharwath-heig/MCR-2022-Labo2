@@ -34,6 +34,11 @@ public class Platinium extends Status {
     }
 
     @Override
+    public double getCoefficiant() {
+        return 1;
+    }
+
+    @Override
     public String toString() {
         return "PLATINIUM";
     }

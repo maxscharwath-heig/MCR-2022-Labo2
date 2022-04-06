@@ -34,6 +34,11 @@ public class Gold extends Status {
     }
 
     @Override
+    public double getCoefficiant() {
+        return 0.5;
+    }
+
+    @Override
     public String toString() {
         return "GOLD";
     }

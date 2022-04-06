@@ -93,7 +93,20 @@ public class ClientManagerGUI extends JFrame {
             bookCashButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    Client selectedClient = (Client) clientComboBox.getSelectedItem();
+                    Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
+                    Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
 
+                    if (selectedClient != null && selectedFlight != null && selectedTicket != null) {
+
+                        if (selectedClient.getCredits() < selectedTicket.getPrice()) {
+                            // ERREUR pas assez de moula
+                            return;
+                        }
+
+                        selectedClient.addMiles((int) (selectedFlight.getDistance() * selectedClient.getStatus().getCoefficiant()));
+                        selectedClient.removeCredit(selectedTicket.getPrice());
+                    }
                 }
             });
 

@@ -43,6 +43,12 @@ public class Client extends Subject {
         return miles;
     }
 
+    public void addMiles(int miles) {
+        if (miles < 0) throw new RuntimeException("Invalid miles");
+        this.miles += miles;
+        notifyObservers();
+    }
+
     public int getId() {
         return id;
     }

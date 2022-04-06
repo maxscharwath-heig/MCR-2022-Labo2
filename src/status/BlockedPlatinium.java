@@ -2,8 +2,6 @@ package status;
 
 import airport.Client;
 
-import java.awt.*;
-
 public class BlockedPlatinium extends Platinium {
 
     public BlockedPlatinium(Client client) {
@@ -11,10 +9,12 @@ public class BlockedPlatinium extends Platinium {
     }
 
     @Override
-    public void promote() {
+    public boolean promote() {
+        return false;
     }
 
     @Override
-    public void demote() {
+    public boolean demote() {
+        return false;
     }
 }

@@ -20,6 +20,6 @@ public class Main {
 
         clients.get(1).setStatus(new Gold(clients.get(1)));
 
-        new ClientManagerGUI(clients).setVisible(true);
+        new ClientManagerGUI(clients, flights).setVisible(true);
     }
 }

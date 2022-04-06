@@ -14,7 +14,11 @@ public abstract class Status {
 
     public abstract Color getColor();
 
-    public abstract void promote();
+    public abstract boolean promote();
 
-    public abstract void demote();
+    public abstract boolean demote();
+
+    public boolean checkAndUpdateState(){
+        return promote()||demote();
+    }
 }

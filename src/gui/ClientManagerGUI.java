@@ -27,7 +27,9 @@ public class ClientManagerGUI extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    new ClientDetailGUI((Client) comboBox.getSelectedItem()).setVisible(true);
+                    if (comboBox.getSelectedItem() != null) {
+                        new ClientDetailGUI((Client) comboBox.getSelectedItem()).setVisible(true);
+                    }
                 }
             });
         }

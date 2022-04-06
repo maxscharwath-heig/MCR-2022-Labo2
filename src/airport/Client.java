@@ -32,6 +32,7 @@ public class Client extends Subject {
 
     public void setStatus(Status status) {
         this.status = status;
+        notifyObservers();
     }
 
     public int getCredits() {
@@ -54,13 +55,4 @@ public class Client extends Subject {
     public String toString() {
         return lastname + " " + firstname;
     }
-    /*
-    public Data getState () {
-        TODO
-    }
-
-    public void setState (Data d) {
-        TODO
-    }
-     */
 }

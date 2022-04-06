@@ -23,13 +23,11 @@ public class StatusGUI extends JFrame implements Observer {
     @Override
     public void update() {
         panel.removeAll();
-
         for (Client client: clients) {
             JLabel label = new JLabel(client.getFirstname() + " " + client.getLastname() + " " + client.getStatus());
-            label.setForeground(client.getStatus().getColor()); // TODO: get status color
+            label.setForeground(client.getStatus().getColor());
             panel.add(label);
         }
-
         add(panel);
     }
 }

@@ -24,4 +24,9 @@ public class Platinium extends Status {
         // Si le compte a au moins 100000 crédits, il reste indéfiniment dans le statut PLATINIUM (même si par la
         //suite il n’a plus les 100000 crédits/10000 miles nécessaires).
     }
+
+    @Override
+    public String toString() {
+        return "PLATINIUM";
+    }
 }

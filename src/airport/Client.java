@@ -45,6 +45,10 @@ public class Client {
         return id;
     }
 
+    public Status getStatus () {
+        return status;
+    }
+
     @Override
     public String toString() {
         return lastname + " " + firstname;

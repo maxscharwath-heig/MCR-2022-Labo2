@@ -28,4 +28,9 @@ public class Gold extends Status {
             client.setStatus(new Silver(client));
         }
     }
+
+    @Override
+    public String toString() {
+        return "GOLD";
+    }
 }

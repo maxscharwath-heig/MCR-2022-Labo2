@@ -25,4 +25,9 @@ public class Silver extends Status {
     @Override
     public void demote() {
     }
+
+    @Override
+    public String toString() {
+        return "SILVER";
+    }
 }

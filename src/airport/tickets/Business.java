@@ -1,7 +1,12 @@
 package airport.tickets;
 
 public class Business extends Ticket {
-    public Business() {
-        super(2, 5);
+    public Business(int basePrice) {
+        super(2, 5, basePrice);
+    }
+
+    @Override
+    public String toString() {
+        return "Business " + super.getPrice() + "$";
     }
 }

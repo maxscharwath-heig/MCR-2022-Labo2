@@ -14,10 +14,14 @@ public class Main {
 
         clients.add(new Client("Boucher", "Guy"));
         clients.add(new Client("Crausaz", "Nicolas"));
+
         flights.add(new Flight("LX1", 1200, 300));
+        flights.add(new Flight("TH2", 500, 200));
+        flights.add(new Flight("HF3", 200, 100));
+
 
         clients.get(1).setStatus(new Gold(clients.get(1)));
 
-        new ClientManagerGUI(clients).setVisible(true);
+        new ClientManagerGUI(clients, flights).setVisible(true);
     }
 }

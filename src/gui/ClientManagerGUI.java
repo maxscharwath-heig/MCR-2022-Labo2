@@ -1,14 +1,21 @@
 package gui;
 
 import airport.Client;
+import airport.Flight;
+import airport.tickets.Business;
+import airport.tickets.Economy;
+import airport.tickets.FirstClass;
+import airport.tickets.Ticket;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.util.LinkedList;
 
 public class ClientManagerGUI extends JFrame {
-    public ClientManagerGUI(LinkedList<Client> clients) {
+    public ClientManagerGUI(LinkedList<Client> clients, LinkedList<Flight> flights) {
         super("Clients Manager");
         var panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
@@ -45,16 +52,45 @@ public class ClientManagerGUI extends JFrame {
         {
             var flightPanel = new JPanel();
             flightPanel.add(new JLabel("Flight"));
-            var comboBox = new JComboBox<>();
-            comboBox.addItem("Flight 1");
-            comboBox.addItem("Flight 2");
-            comboBox.addItem("Flight 3");
-            flightPanel.add(comboBox);
+            var comboBoxFlight = new JComboBox<Flight>();
+            for (Flight flight: flights) {
+                comboBoxFlight.addItem(flight);
+            }
+            flightPanel.add(comboBoxFlight);
+
+            var comboBoxTickets = new JComboBox<Ticket>();
+
+            updateTickets(flights.get(0), comboBoxTickets);
+
+            comboBoxFlight.addItemListener(new ItemListener() {
+                @Override
+                public void itemStateChanged(ItemEvent e) {
+                    Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
+                    updateTickets(selectedFlight, comboBoxTickets);
+                }
+            });
+
+            flightPanel.add(comboBoxTickets);
+
             var bookCashButton = new JButton("Book (cash)");
             var bookMilesButton = new JButton("Book (miles)");
             flightPanel.add(bookCashButton);
             flightPanel.add(bookMilesButton);
             panel.add(flightPanel);
+
+            bookCashButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+
+                }
+            });
+
+            bookMilesButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+
+                }
+            });
         }
         {
             var bottomPanel = new JPanel();
@@ -81,5 +117,17 @@ public class ClientManagerGUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         add(panel);
         pack();
+    }
+
+    private void updateTickets (Flight flight, JComboBox<Ticket> comboBoxTickets) {
+        comboBoxTickets.removeAllItems();
+
+        if (flight != null) {
+            Ticket[] tickets = flight.getTickets();
+
+            for (Ticket ticket: tickets) {
+                comboBoxTickets.addItem(ticket);
+            }
+        }
     }
 }

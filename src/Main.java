@@ -15,6 +15,5 @@ public class Main {
         clients.add(new Client("Crausaz", "Nicolas"));
         flights.add(new Flight("LX1", 1200, 300));
         new ClientManagerGUI(clients).setVisible(true);
-        new StatusGUI().setVisible(true);
     }
 }

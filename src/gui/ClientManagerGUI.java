@@ -56,11 +56,19 @@ public class ClientManagerGUI extends JFrame {
         }
         {
             var bottomPanel = new JPanel();
-            var statusButton = new JButton("Statues");
+            var statusButton = new JButton("Statuses");
             var exitButton = new JButton("Quit");
             bottomPanel.add(statusButton);
             bottomPanel.add(exitButton);
             panel.add(bottomPanel);
+
+            statusButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent actionEvent) {
+                    new StatusGUI(clients).setVisible(true);
+                }
+            });
+
             exitButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {

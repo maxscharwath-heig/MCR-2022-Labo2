@@ -1,9 +1,10 @@
 package airport;
 
+import gui.Subject;
 import status.Silver;
 import status.Status;
 
-public class Client {
+public class Client extends Subject {
     private static int counter = 0;
     private final String lastname;
     private final String firstname;
@@ -53,4 +54,13 @@ public class Client {
     public String toString() {
         return lastname + " " + firstname;
     }
+    /*
+    public Data getState () {
+        TODO
+    }
+
+    public void setState (Data d) {
+        TODO
+    }
+     */
 }

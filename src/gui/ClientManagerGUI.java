@@ -22,7 +22,7 @@ public class ClientManagerGUI extends JFrame {
         panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
-        var clientComboBox = new JComboBox<>();
+        var clientComboBox = new JComboBox<Client>();
         {
             var clientPanel = new JPanel();
             clientPanel.add(new JLabel("Client"));

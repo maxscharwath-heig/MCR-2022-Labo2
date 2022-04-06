@@ -4,6 +4,7 @@ import airport.Client;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.util.Comparator;
 import java.util.LinkedList;
 
 public class StatusGUI extends JFrame implements Observer {
@@ -25,7 +26,15 @@ public class StatusGUI extends JFrame implements Observer {
     @Override
     public void update() {
         panel.removeAll();
-        for (Client client: clients) {
+        var sortedClients = clients.stream().sorted(new Comparator<Client>() {
+            @Override
+            public int compare(Client c1, Client c2) {
+                var c1Name = c1.getLastname() + " " + c1.getFirstname();
+                var c2Name = c2.getLastname() + " " + c2.getFirstname();
+                return c1Name.compareTo(c2Name);
+            }
+        }).toList();
+        for (Client client: sortedClients) {
             JLabel label = new JLabel(client.getFirstname() + " " + client.getLastname() + " " + client.getStatus());
             label.setForeground(client.getStatus().getColor());
             panel.add(label);

@@ -20,12 +20,11 @@ public class StatusGUI extends JFrame implements Observer {
         panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         this.clients = clients;
-        this.update();
+        this.updateGUI();
         pack();
     }
 
-    @Override
-    public void update() {
+    private void updateGUI(){
         panel.removeAll();
         var sortedClients = new LinkedList<>(clients); //copy array
         sortedClients.sort(new Comparator<Client>() {
@@ -42,5 +41,11 @@ public class StatusGUI extends JFrame implements Observer {
             panel.add(label);
         }
         add(panel);
+    }
+
+    @Override
+    public void update(Subject subject) {
+        System.out.println(subject.getClass());
+        updateGUI();
     }
 }

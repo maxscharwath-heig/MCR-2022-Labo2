@@ -17,4 +17,9 @@ public class BlockedPlatinium extends Platinium {
     public boolean demote() {
         return false;
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + " (Locked)";
+    }
 }

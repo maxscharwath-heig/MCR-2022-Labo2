@@ -29,7 +29,7 @@ public class ClientDetailGUI extends JFrame implements Observer {
         panel.add(nbMilesLabel);
         panel.add(statusLabel);
         panel.add(lastActionLabel);
-        update();
+        update(client);
         add(panel);
         pack();
     }
@@ -41,7 +41,8 @@ public class ClientDetailGUI extends JFrame implements Observer {
     }
 
     @Override
-    public void update() {
+    public void update(Subject subject) {
+        System.out.println(subject.getClass());
         this.lastNameLabel.setText("Last name: " + client.getLastname());
         this.firstNameLabel.setText("First name: " + client.getFirstname());
         this.creditLabel.setText("Credits: " + client.getCredits());

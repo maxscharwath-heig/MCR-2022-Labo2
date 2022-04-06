@@ -3,6 +3,7 @@ package gui;
 import airport.Client;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
@@ -11,6 +12,7 @@ public class ClientManagerGUI extends JFrame {
     public ClientManagerGUI(LinkedList<Client> clients) {
         super("Clients Manager");
         var panel = new JPanel();
+        panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 
         var clientComboBox = new JComboBox<>();

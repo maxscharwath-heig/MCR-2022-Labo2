@@ -12,14 +12,15 @@ public class ClientManagerGUI extends JFrame {
         super("Clients Manager");
         var panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+
+        var clientComboBox = new JComboBox<>();
         {
             var clientPanel = new JPanel();
             clientPanel.add(new JLabel("Client"));
-            var comboBox = new JComboBox<>();
             for (Client c : clients) {
-                comboBox.addItem(c);
+                clientComboBox.addItem(c);
             }
-            clientPanel.add(comboBox);
+            clientPanel.add(clientComboBox);
             var button = new JButton("Details");
             clientPanel.add(button);
             panel.add(clientPanel);
@@ -27,8 +28,8 @@ public class ClientManagerGUI extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (comboBox.getSelectedItem() != null) {
-                        new ClientDetailGUI((Client) comboBox.getSelectedItem()).setVisible(true);
+                    if (clientComboBox.getSelectedItem() != null) {
+                        new ClientDetailGUI((Client) clientComboBox.getSelectedItem()).setVisible(true);
                     }
                 }
             });
@@ -41,15 +42,24 @@ public class ClientManagerGUI extends JFrame {
             var button = new JButton("Add");
             creditPanel.add(button);
             panel.add(creditPanel);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    var client = (Client) clientComboBox.getSelectedItem();
+                    if (client != null) {
+                        client.addCredit(Integer.parseInt(numberField.getText()));
+                    }
+                }
+            });
         }
         {
             var flightPanel = new JPanel();
             flightPanel.add(new JLabel("Flight"));
-            var comboBox = new JComboBox<>();
-            comboBox.addItem("Flight 1");
-            comboBox.addItem("Flight 2");
-            comboBox.addItem("Flight 3");
-            flightPanel.add(comboBox);
+            var flightComboBox = new JComboBox<>();
+            flightComboBox.addItem("Flight 1");
+            flightComboBox.addItem("Flight 2");
+            flightComboBox.addItem("Flight 3");
+            flightPanel.add(flightComboBox);
             var bookCashButton = new JButton("Book (cash)");
             var bookMilesButton = new JButton("Book (miles)");
             flightPanel.add(bookCashButton);

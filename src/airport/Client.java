@@ -9,8 +9,8 @@ public class Client extends Subject {
     private final String lastname;
     private final String firstname;
     private final int id;
-    private final int credits;
-    private final int miles;
+    private int credits;
+    private int miles;
     private Status status;
 
     public Client(String lastname, String firstname) {
@@ -54,5 +54,18 @@ public class Client extends Subject {
     @Override
     public String toString() {
         return lastname + " " + firstname;
+    }
+
+    public void addCredit(int credit) {
+        this.setCredits(credits + credit);
+    }
+
+    public void removeCredit(int credit) {
+        this.setCredits(credits - credit);
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+        notifyObservers();
     }
 }

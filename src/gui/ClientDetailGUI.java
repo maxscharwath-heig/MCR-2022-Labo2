@@ -16,6 +16,8 @@ public class ClientDetailGUI extends JFrame implements Observer {
     public ClientDetailGUI(Client client) {
         super("Detail of client #" + client.getId());
         this.client = client;
+        client.attach(this);
+        setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         var panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(lastNameLabel);
@@ -26,6 +28,12 @@ public class ClientDetailGUI extends JFrame implements Observer {
         update();
         add(panel);
         pack();
+    }
+
+    @Override
+    public void dispose() {
+        super.dispose();
+        client.detach(this);
     }
 
     @Override

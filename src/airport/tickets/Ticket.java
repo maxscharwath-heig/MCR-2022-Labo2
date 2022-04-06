@@ -14,4 +14,8 @@ public abstract class Ticket {
     public int getPrice () {
         return coefficiant * basePrice;
     }
+
+    public int getMilesPrice() {
+        return priceInMiles * basePrice;
+    }
 }

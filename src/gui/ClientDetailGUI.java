@@ -47,6 +47,6 @@ public class ClientDetailGUI extends JFrame implements Observer {
         this.creditLabel.setText("Credits: " + client.getCredits());
         this.nbMilesLabel.setText("Nb miles: " + client.getMiles());
         this.statusLabel.setText("Status: " + client.getStatus());
-        this.lastActionLabel.setText("Last action: ");
+        this.lastActionLabel.setText("Last action: " + client.getLastAction());
     }
 }

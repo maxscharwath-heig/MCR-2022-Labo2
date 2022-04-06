@@ -100,12 +100,13 @@ public class ClientManagerGUI extends JFrame {
                     if (selectedClient != null && selectedFlight != null && selectedTicket != null) {
 
                         if (selectedClient.getCredits() < selectedTicket.getPrice()) {
-                            // ERREUR pas assez de moula
+                            selectedClient.setLastAction("Not enough credit");
                             return;
                         }
 
                         selectedClient.addMiles((int) (selectedFlight.getDistance() * selectedClient.getStatus().getCoefficiant()));
                         selectedClient.removeCredit(selectedTicket.getPrice());
+                        selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getPrice() + "$");
                     }
                 }
             });
@@ -113,6 +114,19 @@ public class ClientManagerGUI extends JFrame {
             bookMilesButton.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent actionEvent) {
+                    Client selectedClient = (Client) clientComboBox.getSelectedItem();
+                    Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
+                    Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
+
+                    if (selectedClient != null && selectedFlight != null && selectedTicket != null) {
+                        if (selectedClient.getMiles() < selectedTicket.getMilesPrice()) {
+                            selectedClient.setLastAction("Not enough miles");
+                            return;
+                        }
+
+                        selectedClient.removeMiles(selectedTicket.getMilesPrice());
+                        selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getMilesPrice() + " miles");
+                    }
 
                 }
             });

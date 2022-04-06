@@ -12,6 +12,7 @@ public class Client extends Subject {
     private int credits;
     private int miles;
     private Status status;
+    private String lastAction;
 
     public Client(String lastname, String firstname) {
         this.lastname = lastname;
@@ -20,6 +21,7 @@ public class Client extends Subject {
         this.credits = 0;
         this.miles = 0;
         this.status = new Silver(this);
+        this.lastAction = "";
     }
 
     public String getLastname() {
@@ -49,6 +51,12 @@ public class Client extends Subject {
         notifyObservers();
     }
 
+    public void removeMiles (int miles) {
+        if (miles < 0) throw new RuntimeException("Invalid miles");
+        this.miles -= miles;
+        notifyObservers();
+    }
+
     public int getId() {
         return id;
     }
@@ -72,6 +80,15 @@ public class Client extends Subject {
 
     public void setCredits(int credits) {
         this.credits = credits;
+        notifyObservers();
+    }
+
+    public String getLastAction() {
+        return lastAction;
+    }
+
+    public void setLastAction(String lastAction) {
+        this.lastAction = lastAction;
         notifyObservers();
     }
 }

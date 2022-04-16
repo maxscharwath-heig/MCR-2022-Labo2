@@ -2,9 +2,6 @@ package gui;
 
 import airport.Client;
 import airport.Flight;
-import airport.tickets.Business;
-import airport.tickets.Economy;
-import airport.tickets.FirstClass;
 import airport.tickets.Ticket;
 
 import javax.swing.*;
@@ -13,6 +10,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.util.Collections;
 import java.util.LinkedList;
 
 public class ClientManagerGUI extends JFrame {
@@ -26,6 +24,9 @@ public class ClientManagerGUI extends JFrame {
         {
             var clientPanel = new JPanel();
             clientPanel.add(new JLabel("Client"));
+
+            Collections.sort(clients);
+
             for (Client c : clients) {
                 clientComboBox.addItem(c);
             }
@@ -99,14 +100,14 @@ public class ClientManagerGUI extends JFrame {
 
                     if (selectedClient != null && selectedFlight != null && selectedTicket != null) {
 
-                        if (selectedClient.getCredits() < selectedTicket.getPrice()) {
+                        if (selectedClient.getCredits() < selectedTicket.getPriceInCash()) {
                             selectedClient.setLastAction("Not enough credit");
                             return;
                         }
 
                         selectedClient.addMiles((int) (selectedFlight.getDistance() * selectedClient.getStatus().getCoefficiant()));
-                        selectedClient.removeCredit(selectedTicket.getPrice());
-                        selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getPrice() + "$");
+                        selectedClient.removeCredit(selectedTicket.getPriceInCash());
+                        selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getPriceInCash() + "$");
                     }
                 }
             });
@@ -119,13 +120,13 @@ public class ClientManagerGUI extends JFrame {
                     Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
 
                     if (selectedClient != null && selectedFlight != null && selectedTicket != null) {
-                        if (selectedClient.getMiles() < selectedTicket.getMilesPrice()) {
+                        if (selectedClient.getMiles() < selectedTicket.getPriceInMiles()) {
                             selectedClient.setLastAction("Not enough miles");
                             return;
                         }
 
-                        selectedClient.removeMiles(selectedTicket.getMilesPrice());
-                        selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getMilesPrice() + " miles");
+                        selectedClient.removeMiles(selectedTicket.getPriceInMiles());
+                        selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getPriceInMiles() + " miles");
                     }
 
                 }
@@ -154,6 +155,7 @@ public class ClientManagerGUI extends JFrame {
             });
         }
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
         add(panel);
         pack();
     }

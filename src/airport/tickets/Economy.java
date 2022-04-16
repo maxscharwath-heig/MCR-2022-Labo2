@@ -7,6 +7,6 @@ public class Economy extends Ticket {
 
     @Override
     public String toString() {
-        return "Economy " + super.getPrice() + "$";
+        return "Economy " + super.getPriceInCash() + "$";
     }
 }

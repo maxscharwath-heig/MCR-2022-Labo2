@@ -4,6 +4,7 @@ import airport.Client;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 
@@ -29,14 +30,7 @@ public class StatusGUI extends JFrame implements Observer {
     private void updateGUI() {
         panel.removeAll();
 
-        clients.sort(new Comparator<Client>() {
-            @Override
-            public int compare(Client c1, Client c2) {
-                var c1Name = c1.getLastname() + " " + c1.getFirstname();
-                var c2Name = c2.getLastname() + " " + c2.getFirstname();
-                return c1Name.compareTo(c2Name);
-            }
-        });
+        Collections.sort(clients);
 
         for (Client client : clients) {
             JLabel label = new JLabel(client.toString() + " " + client.getStatus());

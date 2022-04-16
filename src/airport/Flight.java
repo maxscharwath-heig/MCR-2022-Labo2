@@ -5,7 +5,7 @@ import airport.tickets.Economy;
 import airport.tickets.FirstClass;
 import airport.tickets.Ticket;
 
-public class Flight {
+public class Flight implements Comparable<Flight> {
     private final String name;
     private final int distance;
     private final int basePrice;
@@ -39,5 +39,10 @@ public class Flight {
                 new Business(basePrice),
                 new FirstClass(basePrice)
         };
+    }
+
+    @Override
+    public int compareTo(Flight o) {
+        return name.compareTo(o.name);
     }
 }

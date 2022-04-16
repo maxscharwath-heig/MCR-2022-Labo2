@@ -7,6 +7,6 @@ public class FirstClass extends Ticket {
 
     @Override
     public String toString() {
-        return "First class " + super.getPrice() + "$";
+        return "First class " + super.getPriceInCash() + "$";
     }
 }

@@ -4,7 +4,7 @@ import gui.Subject;
 import status.Silver;
 import status.Status;
 
-public class Client extends Subject {
+public class Client extends Subject implements Comparable<Client> {
     private static int counter = 0;
     private final String lastname;
     private final String firstname;
@@ -70,15 +70,18 @@ public class Client extends Subject {
         return lastname + " " + firstname;
     }
 
-    public void addCredit(int credit) {
-        this.setCredits(credits + credit);
+    public void addCredit(int credits) {
+        if (credits < 0) throw new RuntimeException("Invalid credit");
+        this.setCredits(this.credits + credits);
     }
 
-    public void removeCredit(int credit) {
-        this.setCredits(credits - credit);
+    public void removeCredit(int credits) {
+        if (credits < 0) throw new RuntimeException("Invalid credit");
+        this.setCredits(this.credits - credits);
     }
 
     public void setCredits(int credits) {
+        if (credits < 0) throw new RuntimeException("Invalid credit");
         this.credits = credits;
         notifyObservers();
     }
@@ -96,5 +99,11 @@ public class Client extends Subject {
     public void setLastAction(String lastAction) {
         this.lastAction = lastAction;
         notifyObservers();
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        int i = lastname.compareTo(o.lastname);
+        return i != 0 ? i : firstname.compareTo(o.firstname);
     }
 }

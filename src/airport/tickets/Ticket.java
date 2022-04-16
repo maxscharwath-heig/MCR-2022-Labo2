@@ -11,11 +11,11 @@ public abstract class Ticket {
         this.basePrice = basePrice;
     }
 
-    public int getPrice () {
+    public int getPriceInCash() {
         return coefficiant * basePrice;
     }
 
-    public int getMilesPrice() {
+    public int getPriceInMiles() {
         return priceInMiles * basePrice;
     }
 }

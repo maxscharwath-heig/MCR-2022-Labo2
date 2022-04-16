@@ -7,6 +7,6 @@ public class Business extends Ticket {
 
     @Override
     public String toString() {
-        return "Business " + super.getPrice() + "$";
+        return "Business " + super.getPriceInCash() + "$";
     }
 }

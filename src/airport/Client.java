@@ -85,7 +85,6 @@ public class Client extends Subject {
 
     @Override
     public void notifyObservers() {
-        System.out.println("Notify"+ " " + this.getLastname() + " " + this.getFirstname());
         status.checkAndUpdateState();
         super.notifyObservers();
     }

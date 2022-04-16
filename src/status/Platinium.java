@@ -12,7 +12,7 @@ public class Platinium extends Status {
 
     @Override
     public Color getColor() {
-        return Color.LIGHT_GRAY;
+        return Color.CYAN;
     }
 
     @Override

@@ -20,10 +20,6 @@ public class Flight implements Comparable<Flight> {
         return name;
     }
 
-    public int getBasePrice() {
-        return basePrice;
-    }
-
     public int getDistance() {
         return distance;
     }

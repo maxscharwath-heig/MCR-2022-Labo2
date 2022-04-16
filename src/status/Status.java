@@ -21,6 +21,6 @@ public abstract class Status {
     public abstract boolean demote();
 
     public boolean checkAndUpdateState(){
-        return promote()||demote();
+        return promote() || demote();
     }
 }

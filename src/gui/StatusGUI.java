@@ -5,7 +5,6 @@ import airport.Client;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.LinkedList;
 
 public class StatusGUI extends JFrame implements Observer {
@@ -14,7 +13,7 @@ public class StatusGUI extends JFrame implements Observer {
     private final LinkedList<Client> clients;
 
     public StatusGUI(LinkedList<Client> clients) {
-        super("Status");
+        super("Statuses");
 
         panel = new JPanel();
         panel.setBorder(new EmptyBorder(20, 20, 20, 20));

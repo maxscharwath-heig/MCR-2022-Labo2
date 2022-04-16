@@ -158,6 +158,7 @@ public class ClientManagerGUI extends JFrame {
         setLocationRelativeTo(null);
         add(panel);
         pack();
+        setVisible(true);
     }
 
     private void updateTickets (Flight flight, JComboBox<Ticket> comboBoxTickets) {

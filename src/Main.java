@@ -1,7 +1,6 @@
 import airport.Client;
 import airport.Flight;
 import gui.ClientManagerGUI;
-import status.Gold;
 
 import java.util.LinkedList;
 
@@ -21,8 +20,6 @@ public class Main {
         flights.add(new Flight("HF3", 200, 100));
 
 
-        clients.get(1).setStatus(new Gold(clients.get(1)));
-
-        new ClientManagerGUI(clients, flights).setVisible(true);
+        new ClientManagerGUI(clients, flights);
     }
 }

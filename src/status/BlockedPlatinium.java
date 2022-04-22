@@ -9,12 +9,12 @@ public class BlockedPlatinium extends Platinium {
     }
 
     @Override
-    public boolean promote() {
+    protected boolean promote() {
         return false;
     }
 
     @Override
-    public boolean demote() {
+    protected boolean demote() {
         return false;
     }
 

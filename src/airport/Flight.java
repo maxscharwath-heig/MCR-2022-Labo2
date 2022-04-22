@@ -7,20 +7,30 @@ import airport.tickets.Ticket;
 
 public class Flight implements Comparable<Flight> {
     private final String name;
-    private final int distance;
-    private final int basePrice;
+    private final double distance;
+    private final double basePrice;
 
-    public Flight(String name, int distance, int basePrice) {
+    public Flight(String name, double distance, double basePrice) {
         this.name = name;
         this.distance = distance;
         this.basePrice = basePrice;
     }
 
+    /**
+     * Get the name of the flight
+     *
+     * @return name of the flight
+     */
     public String getName() {
         return name;
     }
 
-    public int getDistance() {
+    /**
+     * Get the total distance of the flight
+     *
+     * @return distance of the flight
+     */
+    public double getDistance() {
         return distance;
     }
 
@@ -29,8 +39,13 @@ public class Flight implements Comparable<Flight> {
         return name + " (" + distance + " miles)";
     }
 
+    /**
+     * Get available tickets for the flight
+     *
+     * @return available tickets
+     */
     public Ticket[] getTickets() {
-        return new Ticket[] {
+        return new Ticket[]{
                 new Economy(basePrice),
                 new Business(basePrice),
                 new FirstClass(basePrice)

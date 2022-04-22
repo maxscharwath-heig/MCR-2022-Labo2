@@ -9,8 +9,8 @@ public class Client extends Subject implements Comparable<Client> {
     private final String lastname;
     private final String firstname;
     private final int id;
-    private int credits;
-    private int miles;
+    private double credits;
+    private double miles;
     private Status status;
     private String lastAction;
 
@@ -69,7 +69,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Get current credits of client
      * @return credits number
      */
-    public int getCredits() {
+    public double getCredits() {
         return credits;
     }
 
@@ -77,7 +77,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Get current miles of client
      * @return miles number
      */
-    public int getMiles() {
+    public double getMiles() {
         return miles;
     }
 
@@ -85,7 +85,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Add miles to client
      * @param miles number of miles to add
      */
-    public void addMiles(int miles) {
+    public void addMiles(double miles) {
         if (miles < 0) throw new RuntimeException("Invalid miles");
         this.miles += miles;
         notifyObservers();
@@ -95,7 +95,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Remove miles from client
      * @param miles number of miles to remove
      */
-    public void removeMiles(int miles) {
+    public void removeMiles(double miles) {
         if (miles < 0) throw new RuntimeException("Invalid miles");
         this.miles -= miles;
         notifyObservers();
@@ -105,7 +105,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Add credits to client
      * @param credits number of credits to add
      */
-    public void addCredit(int credits) {
+    public void addCredit(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
         this.setCredits(this.credits + credits);
     }
@@ -114,7 +114,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Remove credit from client
      * @param credits number of credits to remove
      */
-    public void removeCredit(int credits) {
+    public void removeCredit(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
         this.setCredits(this.credits - credits);
     }
@@ -155,7 +155,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Set credit of client
      * @param credits Number of credits to set
      */
-    private void setCredits(int credits) {
+    private void setCredits(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
         this.credits = credits;
         notifyObservers();

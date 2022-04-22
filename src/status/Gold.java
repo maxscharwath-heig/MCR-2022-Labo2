@@ -16,7 +16,7 @@ public class Gold extends Status {
     }
 
     @Override
-    public boolean promote() {
+    protected boolean promote() {
         if (client.getMiles() >= 10000) {
             client.setStatus(new Platinium(client));
             return true;
@@ -25,7 +25,7 @@ public class Gold extends Status {
     }
 
     @Override
-    public boolean demote() {
+    protected boolean demote() {
         if (client.getMiles() < 1000) {
             client.setStatus(new Silver(client));
             return true;

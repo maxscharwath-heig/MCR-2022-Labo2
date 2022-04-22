@@ -66,6 +66,9 @@ public class ClientManagerGUI extends JFrame {
             var flightPanel = new JPanel();
             flightPanel.add(new JLabel("Flight"));
             var comboBoxFlight = new JComboBox<Flight>();
+
+            Collections.sort(flights);
+
             for (Flight flight: flights) {
                 comboBoxFlight.addItem(flight);
             }
@@ -105,7 +108,10 @@ public class ClientManagerGUI extends JFrame {
                             return;
                         }
 
-                        selectedClient.addMiles((int) (selectedFlight.getDistance() * selectedClient.getStatus().getCoefficiant()));
+                        // Credit client of miles with coefficiant
+                        selectedClient.addMiles(selectedFlight.getDistance() * selectedClient.getStatus().getCoefficiant());
+
+                        // Remove price
                         selectedClient.removeCredit(selectedTicket.getPriceInCash());
                         selectedClient.setLastAction("Booked flight " + selectedFlight.getName() + " for " + selectedTicket.getPriceInCash() + "$");
                     }

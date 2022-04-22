@@ -4,8 +4,15 @@ import airport.Client;
 
 import java.awt.*;
 
+/**
+ * Class representing a client's status type gold
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
+ */
 public class Gold extends Status {
-
     public Gold(Client client) {
         super(client);
     }

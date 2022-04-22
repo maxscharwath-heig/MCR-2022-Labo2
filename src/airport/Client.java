@@ -4,6 +4,14 @@ import gui.Subject;
 import status.Silver;
 import status.Status;
 
+/**
+ * Class representing an airport client
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
+ */
 public class Client extends Subject implements Comparable<Client> {
     private static int counter = 0;
     private final String lastname;
@@ -87,8 +95,7 @@ public class Client extends Subject implements Comparable<Client> {
      */
     public void addMiles(double miles) {
         if (miles < 0) throw new RuntimeException("Invalid miles");
-        this.miles += miles;
-        notifyObservers();
+        setMiles(this.miles + miles);
     }
 
     /**
@@ -97,8 +104,7 @@ public class Client extends Subject implements Comparable<Client> {
      */
     public void removeMiles(double miles) {
         if (miles < 0) throw new RuntimeException("Invalid miles");
-        this.miles -= miles;
-        notifyObservers();
+        setMiles(this.miles - miles);
     }
 
     /**
@@ -158,6 +164,12 @@ public class Client extends Subject implements Comparable<Client> {
     private void setCredits(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
         this.credits = credits;
+        notifyObservers();
+    }
+
+    private void setMiles(double miles) {
+        if (credits < 0) throw new RuntimeException("Invalid miles");
+        this.miles = miles;
         notifyObservers();
     }
 

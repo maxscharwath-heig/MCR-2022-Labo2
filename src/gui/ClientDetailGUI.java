@@ -14,7 +14,6 @@ public class ClientDetailGUI extends JFrame implements Observer {
     private final JLabel lastActionLabel = new JLabel();
     private final Client client;
 
-
     public ClientDetailGUI(Client client) {
         super("Detail of client #" + client.getId());
         this.client = client;

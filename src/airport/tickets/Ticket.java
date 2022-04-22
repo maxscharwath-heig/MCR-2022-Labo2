@@ -2,6 +2,11 @@ package airport.tickets;
 
 /**
  * Represent a flight ticket
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
  */
 public abstract class Ticket {
     private final double cashCoefficiant;

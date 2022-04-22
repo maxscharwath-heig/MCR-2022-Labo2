@@ -5,15 +5,33 @@ import airport.tickets.Economy;
 import airport.tickets.FirstClass;
 import airport.tickets.Ticket;
 
+/**
+ * Class representing an airplane flight
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
+ */
 public class Flight implements Comparable<Flight> {
     private final String name;
     private final double distance;
     private final double basePrice;
 
+    private final Ticket[] tickets;
+
     public Flight(String name, double distance, double basePrice) {
+
+        if (distance <= 0 || basePrice <= 0) throw new RuntimeException("Invalid arguments for flight");
+
         this.name = name;
         this.distance = distance;
         this.basePrice = basePrice;
+        this.tickets = new Ticket[]{
+                new Economy(basePrice),
+                new Business(basePrice),
+                new FirstClass(basePrice)
+        };
     }
 
     /**
@@ -45,11 +63,7 @@ public class Flight implements Comparable<Flight> {
      * @return available tickets
      */
     public Ticket[] getTickets() {
-        return new Ticket[]{
-                new Economy(basePrice),
-                new Business(basePrice),
-                new FirstClass(basePrice)
-        };
+        return tickets;
     }
 
     @Override

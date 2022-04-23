@@ -17,7 +17,6 @@ public class Flight implements Comparable<Flight> {
     private final String name;
     private final double distance;
     private final double basePrice;
-
     private final Ticket[] tickets;
 
     public Flight(String name, double distance, double basePrice) {
@@ -52,11 +51,6 @@ public class Flight implements Comparable<Flight> {
         return distance;
     }
 
-    @Override
-    public String toString() {
-        return name + " (" + distance + " miles)";
-    }
-
     /**
      * Get available tickets for the flight
      *
@@ -69,5 +63,10 @@ public class Flight implements Comparable<Flight> {
     @Override
     public int compareTo(Flight o) {
         return name.compareTo(o.name);
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + distance + " miles)";
     }
 }

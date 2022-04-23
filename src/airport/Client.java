@@ -34,6 +34,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get last name of client
+     *
      * @return Last name of client
      */
     public String getLastname() {
@@ -42,6 +43,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get first name of client
+     *
      * @return first name of client
      */
     public String getFirstname() {
@@ -50,6 +52,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get unique identifier of client
+     *
      * @return unique identifier of client
      */
     public int getId() {
@@ -58,6 +61,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get status of client
+     *
      * @return status of client
      */
     public Status getStatus() {
@@ -66,6 +70,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Set the status of client
+     *
      * @param status client new status
      */
     public void setStatus(Status status) {
@@ -75,6 +80,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get current credits of client
+     *
      * @return credits number
      */
     public double getCredits() {
@@ -83,6 +89,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get current miles of client
+     *
      * @return miles number
      */
     public double getMiles() {
@@ -91,6 +98,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Add miles to client
+     *
      * @param miles number of miles to add
      */
     public void addMiles(double miles) {
@@ -100,6 +108,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Remove miles from client
+     *
      * @param miles number of miles to remove
      */
     public void removeMiles(double miles) {
@@ -109,6 +118,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Add credits to client
+     *
      * @param credits number of credits to add
      */
     public void addCredit(double credits) {
@@ -118,6 +128,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Remove credit from client
+     *
      * @param credits number of credits to remove
      */
     public void removeCredit(double credits) {
@@ -136,6 +147,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get last operation of client
+     *
      * @return Last operation of client
      */
     public String getLastAction() {
@@ -144,6 +156,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Get last action of client
+     *
      * @param lastAction last action of client
      */
     public void setLastAction(String lastAction) {
@@ -159,6 +172,7 @@ public class Client extends Subject implements Comparable<Client> {
 
     /**
      * Set credit of client
+     *
      * @param credits Number of credits to set
      */
     private void setCredits(double credits) {
@@ -167,6 +181,11 @@ public class Client extends Subject implements Comparable<Client> {
         notifyObservers();
     }
 
+    /**
+     * Set miles of client
+     *
+     * @param miles Number of miles to set
+     */
     private void setMiles(double miles) {
         if (credits < 0) throw new RuntimeException("Invalid miles");
         this.miles = miles;

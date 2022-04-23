@@ -41,7 +41,7 @@ public class Platinium extends Status {
     }
 
     @Override
-    public double getCoefficiant() {
+    public double getCoefficient() {
         return 1;
     }
 

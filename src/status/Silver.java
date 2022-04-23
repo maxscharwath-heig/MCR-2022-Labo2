@@ -37,7 +37,7 @@ public class Silver extends Status {
     }
 
     @Override
-    public double getCoefficiant() {
+    public double getCoefficient() {
         return 0.1;
     }
 

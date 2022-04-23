@@ -109,7 +109,7 @@ public class ClientManagerGUI extends JFrame {
                         }
 
                         // Credit client of miles with coefficiant
-                        selectedClient.addMiles(selectedFlight.getDistance() * selectedClient.getStatus().getCoefficiant());
+                        selectedClient.addMiles(selectedFlight.getDistance() * selectedClient.getStatus().getCoefficient());
 
                         // Remove price
                         selectedClient.removeCredit(selectedTicket.getPriceInCash());
@@ -172,6 +172,7 @@ public class ClientManagerGUI extends JFrame {
 
         if (flight != null) {
             Ticket[] tickets = flight.getTickets();
+            java.util.Arrays.sort(tickets);
 
             for (Ticket ticket: tickets) {
                 comboBoxTickets.addItem(ticket);

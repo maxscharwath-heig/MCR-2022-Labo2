@@ -42,7 +42,7 @@ public abstract class Status {
      * Get the applied coefficient on miles credit
      * @return miles credit coefficient
      */
-    public abstract double getCoefficiant();
+    public abstract double getCoefficient();
 
     /**
      * Check if client is subject to promotion or demotion
@@ -51,4 +51,7 @@ public abstract class Status {
     public boolean checkAndUpdateState(){
         return promote() || demote();
     }
+
+    @Override
+    public abstract String toString();
 }

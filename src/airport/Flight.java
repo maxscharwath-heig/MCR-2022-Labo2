@@ -28,8 +28,8 @@ public class Flight implements Comparable<Flight> {
         this.distance = distance;
         this.basePrice = basePrice;
         this.tickets = new Ticket[]{
-                new Economy(basePrice),
                 new Business(basePrice),
+                new Economy(basePrice),
                 new FirstClass(basePrice)
         };
     }

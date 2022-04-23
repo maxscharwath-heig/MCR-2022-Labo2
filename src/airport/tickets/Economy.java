@@ -9,10 +9,10 @@ package airport.tickets;
  * @date 2022-04-22
  */
 public class Economy extends Ticket {
-    private static final double PRICE_IN_CASH_COEFFICIANT = 1;
-    private static final double PRICE_IN_MILES_COEFFICIANT = 1;
+    private static final double PRICE_IN_CASH_COEFFICIENT = 1;
+    private static final double PRICE_IN_MILES_COEFFICIENT = 1;
     public Economy(double basePrice) {
-        super(PRICE_IN_CASH_COEFFICIANT, PRICE_IN_MILES_COEFFICIANT, basePrice);
+        super(PRICE_IN_CASH_COEFFICIENT, PRICE_IN_MILES_COEFFICIENT, basePrice);
     }
 
     @Override

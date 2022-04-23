@@ -8,14 +8,14 @@ package airport.tickets;
  * @version 1.0
  * @date 2022-04-22
  */
-public abstract class Ticket {
-    private final double cashCoefficiant;
-    private final double milesCoefficiant;
+public abstract class Ticket implements Comparable<Ticket> {
+    private final double cashCoefficient;
+    private final double milesCoefficient;
     private final double basePrice;
 
-    protected Ticket(double inCashCoefficiant, double priceInMiles, double basePrice) {
-        this.cashCoefficiant = inCashCoefficiant;
-        this.milesCoefficiant = priceInMiles;
+    protected Ticket(double cashCoefficient, double milesCoefficient, double basePrice) {
+        this.cashCoefficient = cashCoefficient;
+        this.milesCoefficient = milesCoefficient;
         this.basePrice = basePrice;
     }
 
@@ -25,7 +25,7 @@ public abstract class Ticket {
      * @return Price in cash ($)
      */
     public double getPriceInCash() {
-        return cashCoefficiant * basePrice;
+        return cashCoefficient * basePrice;
     }
 
     /**
@@ -34,6 +34,11 @@ public abstract class Ticket {
      * @return Price in miles
      */
     public double getPriceInMiles() {
-        return milesCoefficiant * basePrice;
+        return milesCoefficient * basePrice;
+    }
+
+    @Override
+    public int compareTo(Ticket o) {
+        return Double.compare(getPriceInCash(), o.getPriceInCash());
     }
 }

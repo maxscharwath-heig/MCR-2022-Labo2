@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * @version 1.0
  * @date 2022-04-22
 */
-public class Subject {
+public abstract class Subject {
     private final LinkedList<Observer> observers;
 
     public Subject () {

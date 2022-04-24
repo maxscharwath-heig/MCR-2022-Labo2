@@ -20,7 +20,6 @@ public class Flight implements Comparable<Flight> {
     private final Ticket[] tickets;
 
     public Flight(String name, double distance, double basePrice) {
-
         if (distance <= 0 || basePrice <= 0) throw new RuntimeException("Invalid arguments for flight");
 
         this.name = name;

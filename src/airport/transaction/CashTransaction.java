@@ -24,11 +24,22 @@ public class CashTransaction extends Transaction {
             return false;
         }
 
-        // Credit client of miles with coefficiant
-        client.addMiles(flight.getDistance() * client.getStatus().getCoefficient());
+        try {
+            // Credit client of miles with coefficient
+            client.addMiles(flight.getDistance() * client.getStatus().getCoefficient());
+        } catch (Exception e) {
+            logTransaction("Error while adding miles to client");
+            return false;
+        }
 
-        // Remove price
-        client.removeCredit(ticket.getPriceInCash());
+        try {
+            // Remove price
+            client.removeCredit(ticket.getPriceInCash());
+        } catch (Exception e) {
+            logTransaction("Error while removing credit from client");
+            return false;
+        }
+
         logTransaction("Booked flight " + flight.getName() + " for " + ticket.getPriceInCash() + "$");
         return true;
     }

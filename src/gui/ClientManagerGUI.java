@@ -26,14 +26,14 @@ public class ClientManagerGUI extends JFrame {
         setPreferredSize(new Dimension(800, 300));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        var mainPanel = new JPanel();
+        JPanel mainPanel = new JPanel();
         mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         // Clients panel
         Collections.sort(clients);
-        var clientComboBox = new JComboBox<Client>();
-        var clientPanel = new JPanel();
+        JComboBox<Client> clientComboBox = new JComboBox<>();
+        JPanel clientPanel = new JPanel();
         clientPanel.add(new JLabel("Client"));
 
         for (Client c : clients) {
@@ -41,10 +41,10 @@ public class ClientManagerGUI extends JFrame {
         }
 
         clientPanel.add(clientComboBox);
-        var showClientbutton = new JButton("Details");
-        clientPanel.add(showClientbutton);
+        JButton showClientButton = new JButton("Details");
+        clientPanel.add(showClientButton);
 
-        showClientbutton.addActionListener(new ActionListener() {
+        showClientButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (clientComboBox.getSelectedItem() != null) {
@@ -54,25 +54,22 @@ public class ClientManagerGUI extends JFrame {
         });
 
         // Credits panel
-        var creditPanel = new JPanel();
+        JPanel creditPanel = new JPanel();
         creditPanel.add(new JLabel("Credit"));
-        var numberField = new JTextField(10);
+        JTextField numberField = new JTextField(10);
         creditPanel.add(numberField);
-        var addCreditButton = new JButton("Add");
+        JButton addCreditButton = new JButton("Add");
         creditPanel.add(addCreditButton);
         addCreditButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                var client = (Client) clientComboBox.getSelectedItem();
-                if (client != null) {
-                    if (!Objects.equals(numberField.getText(), "")) {
-                        try {
-                            int credits = Integer.parseInt(numberField.getText());
-                            client.addCredit(credits);
-                        } catch (RuntimeException n) {
-                            client.setLastAction("Invalid credit provided");
-                        }
-
+                Client client = (Client) clientComboBox.getSelectedItem();
+                if (client != null && !Objects.equals(numberField.getText(), "")) {
+                    try {
+                        int credits = Integer.parseInt(numberField.getText());
+                        client.addCredit(credits);
+                    } catch (RuntimeException n) {
+                        client.setLastAction("Invalid credit provided");
                     }
                 }
             }
@@ -80,16 +77,16 @@ public class ClientManagerGUI extends JFrame {
 
         // Flight panel
         Collections.sort(flights);
-        var flightPanel = new JPanel();
+        JPanel flightPanel = new JPanel();
         flightPanel.add(new JLabel("Flight"));
-        var comboBoxFlight = new JComboBox<Flight>();
+        JComboBox<Flight> comboBoxFlight = new JComboBox<>();
 
         for (Flight flight : flights) {
             comboBoxFlight.addItem(flight);
         }
         flightPanel.add(comboBoxFlight);
 
-        var comboBoxTickets = new JComboBox<Ticket>();
+        JComboBox<Ticket> comboBoxTickets = new JComboBox<>();
         updateTickets(flights.get(0), comboBoxTickets);
 
         comboBoxFlight.addItemListener(new ItemListener() {
@@ -102,8 +99,8 @@ public class ClientManagerGUI extends JFrame {
 
         flightPanel.add(comboBoxTickets);
 
-        var bookCashButton = new JButton("Book (cash)");
-        var bookMilesButton = new JButton("Book (miles)");
+        JButton bookCashButton = new JButton("Book (cash)");
+        JButton bookMilesButton = new JButton("Book (miles)");
         flightPanel.add(bookCashButton);
         flightPanel.add(bookMilesButton);
         mainPanel.add(flightPanel);
@@ -114,9 +111,12 @@ public class ClientManagerGUI extends JFrame {
                 Client selectedClient = (Client) clientComboBox.getSelectedItem();
                 Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
                 Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
-
+                try {
                 CashTransaction transact = new CashTransaction(selectedClient, selectedFlight, selectedTicket);
                 transact.make();
+                } catch (RuntimeException e) {
+                    System.out.println("An error occurred while trying to book the ticket");
+                }
             }
         });
 
@@ -126,16 +126,19 @@ public class ClientManagerGUI extends JFrame {
                 Client selectedClient = (Client) clientComboBox.getSelectedItem();
                 Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
                 Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
-
-                MilesTransaction transact = new MilesTransaction(selectedClient, selectedFlight, selectedTicket);
-                transact.make();
+                try {
+                    MilesTransaction transact = new MilesTransaction(selectedClient, selectedFlight, selectedTicket);
+                    transact.make();
+                } catch (RuntimeException e) {
+                    System.out.println("An error occurred while trying to book the ticket");
+                }
             }
         });
 
         // Statuses & quit panel
-        var bottomPanel = new JPanel();
-        var statusButton = new JButton("Statuses");
-        var exitButton = new JButton("Quit");
+        JPanel bottomPanel = new JPanel();
+        JButton statusButton = new JButton("Statuses");
+        JButton exitButton = new JButton("Quit");
         bottomPanel.add(statusButton);
         bottomPanel.add(exitButton);
 
@@ -167,7 +170,8 @@ public class ClientManagerGUI extends JFrame {
 
     /**
      * Update the JComboBox of tickets from flight
-     * @param flight the wanted flight
+     *
+     * @param flight          the wanted flight
      * @param comboBoxTickets JComboBox to update
      */
     private void updateTickets(Flight flight, JComboBox<Ticket> comboBoxTickets) {

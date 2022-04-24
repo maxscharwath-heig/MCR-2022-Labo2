@@ -26,8 +26,9 @@ public abstract class Transaction {
      * @throws RuntimeException if client, flight or ticket is null
      */
     protected Transaction(Client client, Flight flight, Ticket ticket) {
-        if (client == null || flight == null || ticket == null)
+        if (client == null || flight == null || ticket == null){
             throw new RuntimeException("Transaction parameter cannot be null");
+        }
 
         this.client = client;
         this.flight = flight;

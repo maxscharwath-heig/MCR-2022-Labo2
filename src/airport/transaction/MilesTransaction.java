@@ -23,8 +23,12 @@ public class MilesTransaction extends Transaction {
             logTransaction("Not enough miles to buy " + flight.getName());
             return false;
         }
-
-        client.removeMiles(ticket.getPriceInMiles());
+        try {
+            client.removeMiles(ticket.getPriceInMiles());
+        } catch (Exception e) {
+            logTransaction("Error while removing miles");
+            return false;
+        }
         logTransaction("Booked flight " + flight.getName() + " for " + ticket.getPriceInMiles() + " miles");
         return true;
     }

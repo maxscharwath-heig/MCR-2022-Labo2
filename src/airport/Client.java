@@ -100,6 +100,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Add miles to client
      *
      * @param miles number of miles to add
+     * @throws RuntimeException if invalid miles
      */
     public void addMiles(double miles) {
         if (miles < 0) throw new RuntimeException("Invalid miles");
@@ -110,6 +111,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Remove miles from client
      *
      * @param miles number of miles to remove
+     * @throws RuntimeException if invalid miles
      */
     public void removeMiles(double miles) {
         if (miles < 0) throw new RuntimeException("Invalid miles");
@@ -120,6 +122,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Add credits to client
      *
      * @param credits number of credits to add
+     * @throws RuntimeException if invalid credits
      */
     public void addCredit(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
@@ -130,6 +133,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Remove credit from client
      *
      * @param credits number of credits to remove
+     * @throws RuntimeException if invalid credits
      */
     public void removeCredit(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
@@ -174,6 +178,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Set credit of client
      *
      * @param credits Number of credits to set
+     * @throws RuntimeException if invalid credits
      */
     private void setCredits(double credits) {
         if (credits < 0) throw new RuntimeException("Invalid credit");
@@ -185,6 +190,7 @@ public class Client extends Subject implements Comparable<Client> {
      * Set miles of client
      *
      * @param miles Number of miles to set
+     * @throws RuntimeException if invalid miles
      */
     private void setMiles(double miles) {
         if (credits < 0) throw new RuntimeException("Invalid miles");

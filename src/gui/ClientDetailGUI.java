@@ -17,7 +17,7 @@ public class ClientDetailGUI extends ObserverWindow {
         super("Detail of client #" + client.getId());
         attach(client);
 
-        var panel = new JPanel();
+        JPanel panel = new JPanel();
         panel.setBorder(new EmptyBorder(20, 20, 20, 20));
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.add(lastNameLabel);

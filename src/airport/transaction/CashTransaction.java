@@ -4,6 +4,14 @@ import airport.Client;
 import airport.Flight;
 import airport.tickets.Ticket;
 
+/**
+ * Class representing a ticket paiement transaction in cash
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-24
+ */
 public class CashTransaction extends Transaction {
     public CashTransaction(Client client, Flight flight, Ticket ticket) {
         super(client, flight, ticket);

@@ -17,13 +17,15 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Objects;
 
+/**
+ * Main window of the airport's clients manager
+ */
 public class ClientManagerGUI extends JFrame {
     public ClientManagerGUI(LinkedList<Client> clients, LinkedList<Flight> flights) {
         super("Clients Manager");
         setPreferredSize(new Dimension(800, 300));
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
         var mainPanel = new JPanel();
         mainPanel.setBorder(new EmptyBorder(20, 20, 20, 20));
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
@@ -52,7 +54,6 @@ public class ClientManagerGUI extends JFrame {
         });
 
         // Credits panel
-
         var creditPanel = new JPanel();
         creditPanel.add(new JLabel("Credit"));
         var numberField = new JTextField(10);
@@ -89,7 +90,6 @@ public class ClientManagerGUI extends JFrame {
         flightPanel.add(comboBoxFlight);
 
         var comboBoxTickets = new JComboBox<Ticket>();
-
         updateTickets(flights.get(0), comboBoxTickets);
 
         comboBoxFlight.addItemListener(new ItemListener() {
@@ -142,7 +142,7 @@ public class ClientManagerGUI extends JFrame {
         statusButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                new StatusGUI(clients).setVisible(true);
+                new StatusGUI(clients);
             }
         });
 
@@ -165,6 +165,11 @@ public class ClientManagerGUI extends JFrame {
         setVisible(true);
     }
 
+    /**
+     * Update the JComboBox of tickets from flight
+     * @param flight the wanted flight
+     * @param comboBoxTickets JComboBox to update
+     */
     private void updateTickets(Flight flight, JComboBox<Ticket> comboBoxTickets) {
         comboBoxTickets.removeAllItems();
 

@@ -11,6 +11,7 @@ public abstract class ObserverWindow extends JFrame implements Observer {
         super(title);
         subjects = new LinkedList<>();
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        setVisible(true);
     }
 
     /**

@@ -14,6 +14,12 @@ public class Main {
         clients.add(new Client("Boucher", "Guy"));
         clients.add(new Client("Scharwath", "Maxime"));
         clients.add(new Client("Boucher", "Frederic"));
+        clients.add(new Client("Lamarre", "Quendrique"));
+        clients.add(new Client("Amidala", "Padenez"));
+        clients.add(new Client("Mark", "Jador"));
+        clients.add(new Client("Komsepief", "Elizabeth"));
+        clients.add(new Client("Spring", "Buffy"));
+        clients.add(new Client("Gjarbijkölector", "Viktor"));
 
         flights.add(new Flight("LX1", 1200, 300));
         flights.add(new Flight("TH2", 500, 200));

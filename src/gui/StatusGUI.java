@@ -32,7 +32,9 @@ public class StatusGUI extends ObserverWindow {
             panel.add(label);
             labels.put(client.getId(), label);
         }
-        add(panel);
+
+        JScrollPane pane = new JScrollPane(panel);
+        add(pane);
         pack();
     }
 

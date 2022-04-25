@@ -26,9 +26,9 @@ public class Flight implements Comparable<Flight> {
         this.distance = distance;
         this.basePrice = basePrice;
         this.tickets = new Ticket[]{
-                new Business(basePrice),
-                new Economy(basePrice),
-                new FirstClass(basePrice)
+                new Business(this),
+                new Economy(this),
+                new FirstClass(this)
         };
     }
 
@@ -48,6 +48,15 @@ public class Flight implements Comparable<Flight> {
      */
     public double getDistance() {
         return distance;
+    }
+
+    /**
+     * Get the base price of the flight
+     *
+     * @return base price of the flight
+     */
+    public double getBasePrice() {
+        return basePrice;
     }
 
     /**

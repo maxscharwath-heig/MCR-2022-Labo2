@@ -1,5 +1,7 @@
 package airport.tickets;
 
+import airport.Flight;
+
 /**
  * Represent a flight ticket
  *
@@ -11,12 +13,12 @@ package airport.tickets;
 public abstract class Ticket implements Comparable<Ticket> {
     private final double cashCoefficient;
     private final double milesCoefficient;
-    private final double basePrice;
+    private final Flight flight;
 
-    protected Ticket(double cashCoefficient, double milesCoefficient, double basePrice) {
+    protected Ticket(Flight flight, double cashCoefficient, double milesCoefficient) {
         this.cashCoefficient = cashCoefficient;
         this.milesCoefficient = milesCoefficient;
-        this.basePrice = basePrice;
+        this.flight = flight;
     }
 
     /**
@@ -25,7 +27,7 @@ public abstract class Ticket implements Comparable<Ticket> {
      * @return Price in cash ($)
      */
     public double getPriceInCash() {
-        return cashCoefficient * basePrice;
+        return cashCoefficient * flight.getBasePrice();
     }
 
     /**
@@ -34,7 +36,7 @@ public abstract class Ticket implements Comparable<Ticket> {
      * @return Price in miles
      */
     public double getPriceInMiles() {
-        return milesCoefficient * basePrice;
+        return milesCoefficient * flight.getDistance();
     }
 
     @Override

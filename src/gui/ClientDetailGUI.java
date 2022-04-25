@@ -4,6 +4,7 @@ import airport.Client;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 
 public class ClientDetailGUI extends ObserverWindow {
     private final JLabel lastNameLabel = new JLabel();
@@ -15,6 +16,9 @@ public class ClientDetailGUI extends ObserverWindow {
 
     public ClientDetailGUI(Client client) {
         super("Detail of client #" + client.getId());
+        setPreferredSize(new Dimension(350, 200));
+        setResizable(false);
+
         attach(client);
 
         JPanel panel = new JPanel();

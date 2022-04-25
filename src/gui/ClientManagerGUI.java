@@ -24,6 +24,7 @@ public class ClientManagerGUI extends JFrame {
     public ClientManagerGUI(LinkedList<Client> clients, LinkedList<Flight> flights) {
         super("Clients Manager");
         setPreferredSize(new Dimension(800, 300));
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         JPanel mainPanel = new JPanel();

@@ -4,6 +4,7 @@ import airport.Client;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
+import java.awt.*;
 import java.util.*;
 
 public class StatusGUI extends ObserverWindow {
@@ -11,6 +12,9 @@ public class StatusGUI extends ObserverWindow {
 
     public StatusGUI(LinkedList<Client> clients) {
         super("Statuses");
+        setPreferredSize(new Dimension(350, 200));
+        setResizable(false);
+
         this.labels = new HashMap<>();
 
         // Attach clients

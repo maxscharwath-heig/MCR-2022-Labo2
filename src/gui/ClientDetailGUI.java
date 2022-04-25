@@ -23,7 +23,7 @@ public class ClientDetailGUI extends ObserverWindow {
 
         JPanel panel = new JPanel();
         panel.setBorder(new EmptyBorder(20, 20, 20, 20));
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
         panel.add(lastNameLabel);
         panel.add(firstNameLabel);
         panel.add(creditLabel);
@@ -45,6 +45,7 @@ public class ClientDetailGUI extends ObserverWindow {
         this.nbMilesLabel.setText(String.format("Nb miles: %.1f miles", client.getMiles()));
         this.statusLabel.setText(String.format("Status: %s", client.getStatus()));
         this.statusLabel.setForeground(client.getStatus().getColor());
-        this.lastActionLabel.setText(String.format("Last action: %s", client.getLastAction()));
+        //add html for line breakings
+        this.lastActionLabel.setText(String.format("<html>Last action: %s</html>", client.getLastAction()));
     }
 }

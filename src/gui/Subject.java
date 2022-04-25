@@ -4,20 +4,22 @@ import java.util.LinkedList;
 
 /**
  * Defining the behaviour of an observable subject
+ *
  * @author Nicolas Crausaz
  * @author Maxime Scharwath
  * @version 1.0
  * @date 2022-04-22
-*/
+ */
 public abstract class Subject {
     private final LinkedList<Observer> observers;
 
-    public Subject () {
+    public Subject() {
         observers = new LinkedList<>();
     }
 
     /**
      * Attach an observer to a subject
+     *
      * @param o observer
      */
     public void attach(Observer o) {
@@ -26,6 +28,7 @@ public abstract class Subject {
 
     /**
      * Detach an observer from a subject
+     *
      * @param o observer
      */
     public void detach(Observer o) {

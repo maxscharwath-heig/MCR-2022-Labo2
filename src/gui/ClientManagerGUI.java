@@ -67,8 +67,9 @@ public class ClientManagerGUI extends JFrame {
                 Client client = (Client) clientComboBox.getSelectedItem();
                 if (client != null && !Objects.equals(numberField.getText(), "")) {
                     try {
-                        int credits = Integer.parseInt(numberField.getText());
+                        double credits = Double.parseDouble(numberField.getText());
                         client.addCredit(credits);
+                        client.setLastAction(String.format("Added %.2f$", credits));
                     } catch (RuntimeException n) {
                         client.setLastAction("Invalid credit provided");
                     }

@@ -39,11 +39,12 @@ public class ClientDetailGUI extends ObserverWindow {
     public void update(Subject subject) {
         Client client = (Client) subject;
 
-        this.lastNameLabel.setText("Last name: " + client.getLastname());
-        this.firstNameLabel.setText("First name: " + client.getFirstname());
-        this.creditLabel.setText("Credits: " + client.getCredits());
-        this.nbMilesLabel.setText("Nb miles: " + client.getMiles());
-        this.statusLabel.setText("Status: " + client.getStatus());
-        this.lastActionLabel.setText("Last action: " + client.getLastAction());
+        this.lastNameLabel.setText(String.format("Last name: %s", client.getLastname()));
+        this.firstNameLabel.setText(String.format("First name: %s", client.getFirstname()));
+        this.creditLabel.setText(String.format("Credits: %.2f$", client.getCredits()));
+        this.nbMilesLabel.setText(String.format("Nb miles: %.1f miles", client.getMiles()));
+        this.statusLabel.setText(String.format("Status: %s", client.getStatus()));
+        this.statusLabel.setForeground(client.getStatus().getColor());
+        this.lastActionLabel.setText(String.format("Last action: %s", client.getLastAction()));
     }
 }

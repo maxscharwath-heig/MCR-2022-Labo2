@@ -113,8 +113,8 @@ public class ClientManagerGUI extends JFrame {
                 Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
                 Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
                 try {
-                CashTransaction transact = new CashTransaction(selectedClient, selectedFlight, selectedTicket);
-                transact.make();
+                    CashTransaction transact = new CashTransaction(selectedClient, selectedFlight, selectedTicket);
+                    transact.make();
                 } catch (RuntimeException e) {
                     System.out.println("An error occurred while trying to book the ticket");
                 }

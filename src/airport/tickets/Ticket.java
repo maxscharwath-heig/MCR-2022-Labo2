@@ -11,14 +11,15 @@ import airport.Flight;
  * @date 2022-04-22
  */
 public abstract class Ticket implements Comparable<Ticket> {
+
+    private final Flight flight;
     private final double cashCoefficient;
     private final double milesCoefficient;
-    private final Flight flight;
 
     protected Ticket(Flight flight, double cashCoefficient, double milesCoefficient) {
+        this.flight = flight;
         this.cashCoefficient = cashCoefficient;
         this.milesCoefficient = milesCoefficient;
-        this.flight = flight;
     }
 
     /**

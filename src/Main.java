@@ -19,7 +19,6 @@ public class Main {
         flights.add(new Flight("TH2", 500, 200));
         flights.add(new Flight("HF3", 200, 100));
 
-
         new ClientManagerGUI(clients, flights);
     }
 }

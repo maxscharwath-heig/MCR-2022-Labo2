@@ -160,12 +160,6 @@ public class Client extends Subject implements Comparable<Client> {
         notifyObservers();
     }
 
-    @Override
-    public int compareTo(Client o) {
-        int i = lastname.compareTo(o.lastname);
-        return i != 0 ? i : firstname.compareTo(o.firstname);
-    }
-
     /**
      * Set credit of client
      *
@@ -184,6 +178,12 @@ public class Client extends Subject implements Comparable<Client> {
     private void setMiles(double miles) {
         this.miles = miles;
         notifyObservers();
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        int i = lastname.compareTo(o.lastname);
+        return i != 0 ? i : firstname.compareTo(o.firstname);
     }
 
     @Override

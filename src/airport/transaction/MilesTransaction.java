@@ -20,11 +20,11 @@ public class MilesTransaction extends Transaction {
     @Override
     public boolean make() {
         if (client.getMiles() < ticket.getPriceInMiles()) {
-            logTransaction(String.format("Not enough miles to buy %s, need %s miles but only have %s miles",flight.getName(), ticket.getPriceInMiles(), client.getMiles()));
+            logTransaction(String.format("Not enough miles to buy %s, need %s miles but only have %s miles", flight.getName(), ticket.getPriceInMiles(), client.getMiles()));
             return false;
         }
         client.removeMiles(ticket.getPriceInMiles());
-        logTransaction(String.format("Booked flight %s for %s miles",flight.getName(), ticket.getPriceInMiles()));
+        logTransaction(String.format("Booked flight %s for %s miles", flight.getName(), ticket.getPriceInMiles()));
         return true;
     }
 }

@@ -13,6 +13,7 @@ import airport.Flight;
 public class Economy extends Ticket {
     private static final double PRICE_IN_CASH_COEFFICIENT = 1;
     private static final double PRICE_IN_MILES_COEFFICIENT = 1;
+
     public Economy(Flight flight) {
         super(flight, PRICE_IN_CASH_COEFFICIENT, PRICE_IN_MILES_COEFFICIENT);
     }

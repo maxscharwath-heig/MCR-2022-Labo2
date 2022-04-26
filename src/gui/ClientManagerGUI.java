@@ -26,6 +26,13 @@ import java.util.Objects;
  * @date 2022-04-22
  */
 public class ClientManagerGUI extends JFrame {
+
+    /**
+     * Starts the airport's clients manager application
+     *
+     * @param clients list of clients of the airport
+     * @param flights list of flight of the airport
+     */
     public ClientManagerGUI(LinkedList<Client> clients, LinkedList<Flight> flights) {
         super("Clients Manager");
         setPreferredSize(new Dimension(800, 300));

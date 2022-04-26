@@ -13,6 +13,9 @@ import java.util.LinkedList;
 public abstract class Subject {
     private final LinkedList<Observer> observers;
 
+    /**
+     * Creates a new subject
+     */
     public Subject() {
         observers = new LinkedList<>();
     }

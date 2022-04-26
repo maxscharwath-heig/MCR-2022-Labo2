@@ -22,6 +22,12 @@ public class Client extends Subject implements Comparable<Client> {
     private Status status;
     private String lastAction;
 
+    /**
+     * Creates a client
+     *
+     * @param lastname  last name of client
+     * @param firstname first name of client
+     */
     public Client(String lastname, String firstname) {
         this.lastname = lastname;
         this.firstname = firstname;

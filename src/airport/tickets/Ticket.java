@@ -16,6 +16,11 @@ public abstract class Ticket implements Comparable<Ticket> {
     private final double cashCoefficient;
     private final double milesCoefficient;
 
+    /**
+     * Creates a ticket
+     *
+     * @param flight ticket's flight
+     */
     protected Ticket(Flight flight, double cashCoefficient, double milesCoefficient) {
         this.flight = flight;
         this.cashCoefficient = cashCoefficient;

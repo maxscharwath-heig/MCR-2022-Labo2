@@ -13,6 +13,12 @@ import java.awt.*;
  * @date 2022-04-22
  */
 public class Gold extends Status {
+
+    /**
+     * Create a gold status
+     *
+     * @param client client related to the status
+     */
     public Gold(Client client) {
         super(client);
     }

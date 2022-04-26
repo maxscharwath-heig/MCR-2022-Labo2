@@ -13,6 +13,12 @@ import java.awt.*;
  * @date 2022-04-22
  */
 public class Platinium extends Status {
+
+    /**
+     * Create a platinium status
+     *
+     * @param client client related to the status
+     */
     public Platinium(Client client) {
         super(client);
     }

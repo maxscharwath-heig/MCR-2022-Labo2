@@ -16,6 +16,11 @@ public abstract class Status {
 
     protected final Client client;
 
+    /**
+     * Create a status
+     *
+     * @param client client related to the status
+     */
     protected Status(Client client) {
         this.client = client;
     }

@@ -16,6 +16,11 @@ import java.util.LinkedList;
 public abstract class ObserverWindow extends JFrame implements Observer {
     private final LinkedList<Subject> subjects;
 
+    /**
+     * Creates an observer window
+     *
+     * @param title title of window to display
+     */
     protected ObserverWindow(String title) {
         super(title);
         subjects = new LinkedList<>();

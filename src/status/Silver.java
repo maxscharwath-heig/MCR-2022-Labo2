@@ -13,6 +13,12 @@ import java.awt.*;
  * @date 2022-04-22
  */
 public class Silver extends Status {
+
+    /**
+     * Create a silver status
+     *
+     * @param client client related to the status
+     */
     public Silver(Client client) {
         super(client);
     }

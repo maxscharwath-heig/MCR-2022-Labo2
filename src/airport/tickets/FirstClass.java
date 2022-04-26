@@ -14,6 +14,11 @@ public class FirstClass extends Ticket {
     private static final double PRICE_IN_CASH_COEFFICIENT = 5;
     private static final double PRICE_IN_MILES_COEFFICIENT = 30;
 
+    /**
+     * Creates a first class type ticket
+     *
+     * @param flight ticket's flight
+     */
     public FirstClass(Flight flight) {
         super(flight, PRICE_IN_CASH_COEFFICIENT, PRICE_IN_MILES_COEFFICIENT);
     }

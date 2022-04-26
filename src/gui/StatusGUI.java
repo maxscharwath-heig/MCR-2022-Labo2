@@ -18,6 +18,11 @@ import java.util.*;
 public class StatusGUI extends ObserverWindow {
     private final Map<Integer, JLabel> labels;
 
+    /**
+     * Display a window that shows clients statuses
+     *
+     * @param clients clients to show
+     */
     public StatusGUI(LinkedList<Client> clients) {
         super("Statuses");
         setPreferredSize(new Dimension(350, 200));

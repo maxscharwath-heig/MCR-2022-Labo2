@@ -22,6 +22,11 @@ public class ClientDetailGUI extends ObserverWindow {
     private final JLabel statusLabel = new JLabel();
     private final JLabel lastActionLabel = new JLabel();
 
+    /**
+     * Display a window that shows a client's details
+     *
+     * @param client the client who will be displayed
+     */
     public ClientDetailGUI(Client client) {
         super("Detail of client #" + client.getId());
         setPreferredSize(new Dimension(350, 200));

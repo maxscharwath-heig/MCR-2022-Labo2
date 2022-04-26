@@ -11,6 +11,12 @@ import airport.Client;
  * @date 2022-04-22
  */
 public class BlockedPlatinium extends Platinium {
+
+    /**
+     * Create a platinum status that stays lock for lifetime
+     *
+     * @param client client related to the status
+     */
     public BlockedPlatinium(Client client) {
         super(client);
     }

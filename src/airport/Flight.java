@@ -19,13 +19,20 @@ public class Flight implements Comparable<Flight> {
     private final double basePrice;
     private final Ticket[] tickets;
 
+    /**
+     * Creates a flight
+     *
+     * @param name      name of flight
+     * @param distance  distance of flight in miles
+     * @param basePrice base price of a ticket in flight
+     */
     public Flight(String name, double distance, double basePrice) {
         if (distance <= 0 || basePrice <= 0) throw new RuntimeException("Invalid arguments for flight");
 
         this.name = name;
         this.distance = distance;
         this.basePrice = basePrice;
-        this.tickets = new Ticket[] {
+        this.tickets = new Ticket[]{
                 new Business(this),
                 new Economy(this),
                 new FirstClass(this)

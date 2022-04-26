@@ -74,6 +74,7 @@ public class Client extends Subject implements Comparable<Client> {
      * @param status client new status
      */
     public void setStatus(Status status) {
+        if (this.status == status) return; // No change
         this.status = status;
         notifyObservers();
     }
@@ -137,7 +138,7 @@ public class Client extends Subject implements Comparable<Client> {
      */
     @Override
     public void notifyObservers() {
-        status.checkAndUpdateState();
+        status.checkAndUpdateState(); // When data changes, check and update status
         super.notifyObservers();
     }
 
@@ -156,6 +157,7 @@ public class Client extends Subject implements Comparable<Client> {
      * @param lastAction last action of client
      */
     public void setLastAction(String lastAction) {
+        if (this.lastAction.equals(lastAction)) return; // No change
         this.lastAction = lastAction;
         notifyObservers();
     }
@@ -166,6 +168,7 @@ public class Client extends Subject implements Comparable<Client> {
      * @param credits Number of credits to set
      */
     private void setCredits(double credits) {
+        if (credits == this.credits) return; // No change
         this.credits = credits;
         notifyObservers();
     }
@@ -176,6 +179,7 @@ public class Client extends Subject implements Comparable<Client> {
      * @param miles Number of miles to set
      */
     private void setMiles(double miles) {
+        if (miles == this.miles) return; // No change
         this.miles = miles;
         notifyObservers();
     }

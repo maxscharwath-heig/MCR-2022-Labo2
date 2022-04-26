@@ -1,7 +1,6 @@
 package airport.transaction;
 
 import airport.Client;
-import airport.Flight;
 import airport.tickets.Ticket;
 
 /**
@@ -13,21 +12,29 @@ import airport.tickets.Ticket;
  * @date 2022-04-24
  */
 public class CashTransaction extends Transaction {
-    public CashTransaction(Client client, Flight flight, Ticket ticket) {
-        super(client, flight, ticket);
+
+    /**
+     * Creates a new cash transaction
+     *
+     * @param client client buying the ticket
+     * @param ticket ticket to buy
+     * @throws RuntimeException if client or ticket is null
+     */
+    public CashTransaction(Client client, Ticket ticket) {
+        super(client, ticket);
     }
 
     @Override
     public boolean make() {
         if (client.getCredits() < ticket.getPriceInCash()) {
-            logTransaction(String.format("Not enough credit to buy %s, need %s$ got %s$", flight.getName(), ticket.getPriceInCash(), client.getCredits()));
+            logTransaction(String.format("Not enough credit to buy %s, need %s$ got %s$", ticket.getFlight().getName(), ticket.getPriceInCash(), client.getCredits()));
             return false;
         }
         // Credit client of miles with coefficient
-        client.addMiles(flight.getDistance() * client.getStatus().getCoefficient());
+        client.addMiles(ticket.getFlight().getDistance() * client.getStatus().getCoefficient());
         // Remove price
         client.removeCredit(ticket.getPriceInCash());
-        logTransaction(String.format("Booked flight %s for %s$", flight.getName(), ticket.getPriceInCash()));
+        logTransaction(String.format("Booked flight %s for %s$", ticket.getFlight().getName(), ticket.getPriceInCash()));
         return true;
     }
 }

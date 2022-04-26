@@ -21,7 +21,7 @@ public abstract class Status {
     }
 
     /**
-     * Color reprensentation of status
+     * Color representation of status
      *
      * @return color of status
      */

@@ -7,6 +7,14 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.util.*;
 
+/**
+ * Window showing clients statuses
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
+ */
 public class StatusGUI extends ObserverWindow {
     private final Map<Integer, JLabel> labels;
 
@@ -14,12 +22,11 @@ public class StatusGUI extends ObserverWindow {
         super("Statuses");
         setPreferredSize(new Dimension(350, 200));
         setResizable(false);
-
         this.labels = new HashMap<>();
 
         // Attach clients
         Collections.sort(clients);
-        super.attach(clients);
+        attach(clients);
 
         // Build panel
         JPanel panel = new JPanel();
@@ -33,6 +40,7 @@ public class StatusGUI extends ObserverWindow {
             labels.put(client.getId(), label);
         }
 
+        // Make panel scrollable if too many clients
         JScrollPane pane = new JScrollPane(panel);
         add(pane);
         pack();

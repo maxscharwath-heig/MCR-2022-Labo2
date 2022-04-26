@@ -6,6 +6,14 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
+/**
+ * Window showing a client's details
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
+ */
 public class ClientDetailGUI extends ObserverWindow {
     private final JLabel lastNameLabel = new JLabel();
     private final JLabel firstNameLabel = new JLabel();
@@ -45,7 +53,7 @@ public class ClientDetailGUI extends ObserverWindow {
         this.nbMilesLabel.setText(String.format("Nb miles: %.1f miles", client.getMiles()));
         this.statusLabel.setText(String.format("Status: %s", client.getStatus()));
         this.statusLabel.setForeground(client.getStatus().getColor());
-        //add html for line breakings
+        // add html for line breakings
         this.lastActionLabel.setText(String.format("<html>Last action: %s</html>", client.getLastAction()));
     }
 }

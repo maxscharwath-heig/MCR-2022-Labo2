@@ -5,7 +5,6 @@ import gui.ClientManagerGUI;
 import java.util.LinkedList;
 
 public class Main {
-
     public static void main(String... args) {
         LinkedList<Client> clients = new LinkedList<>();
         LinkedList<Flight> flights = new LinkedList<>();

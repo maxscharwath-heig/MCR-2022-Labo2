@@ -19,6 +19,11 @@ import java.util.Objects;
 
 /**
  * Main window of the airport's clients manager
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
  */
 public class ClientManagerGUI extends JFrame {
     public ClientManagerGUI(LinkedList<Client> clients, LinkedList<Flight> flights) {
@@ -111,10 +116,9 @@ public class ClientManagerGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Client selectedClient = (Client) clientComboBox.getSelectedItem();
-                Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
                 Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
                 try {
-                    CashTransaction transact = new CashTransaction(selectedClient, selectedFlight, selectedTicket);
+                    CashTransaction transact = new CashTransaction(selectedClient, selectedTicket);
                     transact.make();
                 } catch (RuntimeException e) {
                     System.out.println("An error occurred while trying to book the ticket");
@@ -126,10 +130,9 @@ public class ClientManagerGUI extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 Client selectedClient = (Client) clientComboBox.getSelectedItem();
-                Flight selectedFlight = (Flight) comboBoxFlight.getSelectedItem();
                 Ticket selectedTicket = (Ticket) comboBoxTickets.getSelectedItem();
                 try {
-                    MilesTransaction transact = new MilesTransaction(selectedClient, selectedFlight, selectedTicket);
+                    MilesTransaction transact = new MilesTransaction(selectedClient, selectedTicket);
                     transact.make();
                 } catch (RuntimeException e) {
                     System.out.println("An error occurred while trying to book the ticket");

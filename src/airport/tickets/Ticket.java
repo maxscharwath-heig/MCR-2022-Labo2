@@ -40,6 +40,15 @@ public abstract class Ticket implements Comparable<Ticket> {
         return milesCoefficient * flight.getDistance();
     }
 
+    /**
+     * Get the ticket's flight
+     *
+     * @return ticket's flight
+     */
+    public Flight getFlight() {
+        return flight;
+    }
+
     @Override
     public int compareTo(Ticket o) {
         return Double.compare(getPriceInCash(), o.getPriceInCash());

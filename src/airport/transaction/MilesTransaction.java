@@ -1,7 +1,6 @@
 package airport.transaction;
 
 import airport.Client;
-import airport.Flight;
 import airport.tickets.Ticket;
 
 /**
@@ -13,18 +12,27 @@ import airport.tickets.Ticket;
  * @date 2022-04-24
  */
 public class MilesTransaction extends Transaction {
-    public MilesTransaction(Client client, Flight flight, Ticket ticket) {
-        super(client, flight, ticket);
+
+    /**
+     * Creates a new miles transaction
+     *
+     * @param client client buying the ticket
+     * @param ticket ticket to buy
+     * @throws RuntimeException if client or ticket is null
+     */
+    public MilesTransaction(Client client, Ticket ticket) {
+        super(client, ticket);
     }
 
     @Override
     public boolean make() {
         if (client.getMiles() < ticket.getPriceInMiles()) {
-            logTransaction(String.format("Not enough miles to buy %s, need %s miles but only have %s miles", flight.getName(), ticket.getPriceInMiles(), client.getMiles()));
+            logTransaction(String.format("Not enough miles to buy %s, need %s miles but only have %s miles", ticket.getFlight().getName(), ticket.getPriceInMiles(), client.getMiles()));
             return false;
         }
+        // Remove miles from client
         client.removeMiles(ticket.getPriceInMiles());
-        logTransaction(String.format("Booked flight %s for %s miles", flight.getName(), ticket.getPriceInMiles()));
+        logTransaction(String.format("Booked flight %s for %s miles", ticket.getFlight().getName(), ticket.getPriceInMiles()));
         return true;
     }
 }

@@ -4,6 +4,15 @@ import javax.swing.*;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+/**
+ * Class that define an observer window that can attach observers to subjects
+ * and that will detach them when closed.
+ *
+ * @author Nicolas Crausaz
+ * @author Maxime Scharwath
+ * @version 1.0
+ * @date 2022-04-22
+ */
 public abstract class ObserverWindow extends JFrame implements Observer {
     private final LinkedList<Subject> subjects;
 
